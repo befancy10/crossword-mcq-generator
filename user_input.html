@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Generation</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&display=swap">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="text-input">
+            <h1>Generate crossword from text</h1>
+        </div>
+        <select id="exampleDropdown" onchange="loadExample()">
+            <option value="">Select an example</option>
+            <option value="example1">Story Book: The Farmer And The Well</option>
+            <option value="example2">Story Book: The Bear And The Two Friends</option>
+            <option value="example3">Story Book: The Golden Touch</option>
+        </select>
+        <textarea id="contextInput" placeholder="Enter your passage here..."></textarea>
+        <button id="generateButton" onclick="generateQuestions()">Generate</button>
+    </div>
+    <div id="spinner" class="loader"></div>
+    <script src="./js/generate_question_answer.js"></script>
+    <script src="./js/load_example.js"></script>
+</body>
+</html>

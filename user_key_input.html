@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Key</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&display=swap">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div id="container">
+        <div class="text-input">
+            <h1>Your Name and Input Generated Key</h1>
+        </div>
+        <textarea id="context-input-name" placeholder="Enter Your Name"></textarea>
+        <textarea id="context-input" placeholder="Enter Key"></textarea>
+        <button onclick="fetchKeyAndName()">Submit</button>
+    </div>
+    <div id="nameFoundModal" class="modal">
+        <div class="modal-content">
+            <h2>Name Found</h2>
+            <p>Your name already used. Do you want to proceed with this name?</p>
+            <button id="proceedBtn">Proceed</button>
+            <button id="cancelBtn">Cancel</button>
+        </div>
+    </div>
+    <div id="alreadyFinished" class="modal">
+        <div class="modal-content">
+            <p>You have completed the crossword using this name</p>
+            <button id="okayBtn">Okay</button>
+        </div>
+    </div>
+    <script src="./js/fetch_key_name.js"></script>
+</body>
+</html>

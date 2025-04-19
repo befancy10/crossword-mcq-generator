@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Crossword Generator</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&display=swap">
+  <link href="./css/style.css" rel="stylesheet">
+  <style>
+    /* MCQ Styles */
+    .mcq-question {
+        margin-bottom: 20px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    .mcq-options {
+        margin-top: 10px;
+        list-style-type: upper-alpha;
+        padding-left: 30px;
+    }
+
+    .mcq-options li {
+        margin-bottom: 5px;
+        padding: 5px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .mcq-options li:hover {
+        background-color: #f0f0f0;
+    }
+
+    .correct-answer {
+        color: #28a745;
+        font-weight: bold;
+    }
+
+    /* Button Styles */
+    #button-container {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    #button-container button {
+        margin: 5px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    #genCrossword {
+        background-color: #4CAF50;
+    }
+
+    #genMCQ {
+        background-color: #2196F3;
+    }
+
+    #export, #exportMCQ {
+        background-color: #ff9800;
+    }
+
+    #button-container button:hover {
+        opacity: 0.9;
+    }
+  </style>
+</head>
+
+<body>
+  <textarea id="key" style="display: none;"></textarea>
+  <textarea id="val" style="display: none;"></textarea>
+
+  <div class="text-input">
+    <h1>Generated Questions</h1>
+  </div>
+
+  <div id="passageResult"></div>
+  <center style="margin-bottom: 20px; margin-top:20px;">
+    <label for="questionCount" style="font-weight: 1000;">Select number of questions:</label>
+    <select id="questionCount" style="border-radius: 10px; padding: 3px;"></select>
+  </center>
+  <div id="crosswordsDiv"></div>
+  <div id="result"></div>
+  <div id="button-container">
+    <button id="genCrossword">Generate Crossword Puzzle</button>
+    <button id="genMCQ">Generate Multiple Choice Quiz</button>
+    <button id="export" onclick="exportCrosswordData()" style="display: none;">Export Crossword</button>
+    <button id="exportMCQ" onclick="exportMCQData()" style="display: none;">Export MCQ</button>
+  </div>
+  
+  <!-- Keep the original gen button but hide it -->
+  <button id="gen" style="display: none;">generate</button>
+  
+  <!-- MCQ Preview Modal -->
+  <div id="mcqPreviewModal" class="modal">
+    <div class="modal-content" style="width: 80%; max-width: 800px;">
+      <div class="modal-header">
+        <h5 class="modal-title">Multiple Choice Quiz Preview</h5>
+        <span class="close" id="closeMcqPreview">&times;</span>
+      </div>
+      <div class="modal-body" id="mcqPreviewContent">
+        <!-- MCQ content will be inserted here -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn" id="confirmMCQ">Confirm and Export</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="messageModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Generated Key</h5>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body" id="messageModalBody"></div>
+      <div class="modal-footer">
+        <button class="btn" id="copyButton" onclick="copyKeyToClipboard()">Copy to Clipboard</button>
+      </div>
+    </div>
+  </div>
+  
+  <center>
+    <div id="errorModal" class="modal">
+      <div class="modal-content">
+        <p id="errorMessage"></p>
+        <button onclick="goBack()">Go back to previous page</button>
+      </div>
+    </div>
+  </center>
+  
+  <div id="crosswordFinished" class="modal">
+    <div class="modal-content">
+        <h2>All Tile is Filled</h2>
+        <button id="okayButton">Okay</button>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="./js/question_answer.js"></script>
+  <script type="text/javascript" src="./js/index.js"></script>
+  <script type="text/javascript" src="./js/export.js"></script>
+  <script type="text/javascript" src="./js/mcq_generator.js"></script>
+  
+</body>
+
+</html>
