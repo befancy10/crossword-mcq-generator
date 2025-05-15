@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crossword Data</title>
+    <title>Multiple Choice Quiz</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&display=swap">
     <link href="./css/style.css" rel="stylesheet">
 </head>
 <body>
   <div class="text-input">
-    <h1>Generated crossword</h1>
+    <h1>Generated Multiple Choice Quiz</h1>
   </div>
   <textarea id="key" style="display: none;"></textarea>
   <textarea id="val" style="display: none;"></textarea>
@@ -17,36 +17,35 @@
   <div id ="nameStudent"></div>
   <div id ="keyGenerated"></div>
   <div id="passageResult"></div>
-  <div id="crosswordsDiv"></div>
-  <div id="result" style="display: none;"></div>
+  <div id="mcqQuestions"></div>
   <div id="button-container">
-    <button id="showCrossword">Show</button>
-    <button id="checkCondition" style="display: none;">Submit</button>
+    <button id="checkMCQCondition" onclick="submitMCQAnswers()">Submit</button>
   </div>
 
-  <div id="crosswordFinished" class="modal">
+  <div id="mcqIsFinishedModal" class="modal">
     <div class="modal-content">
-        <h2>You Win</h2>
-        <button id="okayButton">Okay</button>
+        <h2>Good Job! Your Score: </h2>
+        <button id="mcqIsFinishedModalOkayButton">Okay</button>
         <button id="viewLeaderboard" style="margin-top: 1%;">View Leaderboard</button>
     </div>
   </div>
 
-  <div id="crosswordNotFinished" class="modal">
+  <!-- Modal: MCQ not fully answered -->
+  <div id="mcqUnansweredModal" class="modal">
     <div class="modal-content">
-        <h2>The Input Still Incorect</h2>
-        <button id="okayButtonIncorect">Okay</button>
+      <h2>Please answer all questions before submitting</h2>
+      <button id="mcqUnansweredOkayBtn">Okay</button>
     </div>
   </div>
 
-  <div id="crosswordIsEmpty" class="modal">
+  <!-- Modal: General error or empty input -->
+  <div id="mcqIsEmpty" class="modal">
     <div class="modal-content">
-        <h2>The Input Still Empty</h2>
-        <button id="okayButtonEmpty">Okay</button>
+      <h2>Something went wrong. Please refresh.</h2>
+      <button id="okayButtonEmpty">Okay</button>
     </div>
   </div>
 
-    <script src="./js/display_question_answer_crossword.js"></script>
-    <script src="./js/index_generated.js"></script>
+    <script src="./js/display_question_answer_mcq.js"></script>
 </body>
 </html>

@@ -114,7 +114,7 @@ input:focus{
     background: transparent;
     background:black;
     /* border:20px solid #2f77e2; */ 
-    margin-top: 20px; /* Adjust as needed to create space between button and crossword */
+    margin-top: 3%; /* Adjust as needed to create space between button and crossword */
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -128,9 +128,16 @@ input:focus{
     height: 100vh;
 }
 
+#questionCountWrapper {
+    text-align: center;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
 #button-container {
     display: flex;
     justify-content: center;
+    margin-top: 10px;
     margin-bottom: 10px;
     text-align: center; /* Center contents horizontally */
 }
@@ -210,8 +217,10 @@ input:focus{
 }
 
 .passage {
-    margin-left: 300px;
-    margin-right: 300px;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 10px;
+    margin-bottom: 2%;
 }
 
 #nameStudent {
@@ -234,6 +243,16 @@ input:focus{
     -o-border-radius: 10px;
 }
 
+#selectQuizType {
+    display: block;
+    font-family: 'Abhaya Libre', sans-serif;
+    font-weight: 800;
+    justify-content: center;
+    margin-top: 10%;
+    margin-bottom: 20px;
+    text-align: center; /* Center contents horizontally */
+}
+
 .text {
     margin-bottom: 20px;
     font-family: 'Abhaya Libre', sans-serif;
@@ -244,6 +263,8 @@ input:focus{
     font-family: 'Abhaya Libre', sans-serif;
     font-size: 18px;
     text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .hint {
@@ -272,41 +293,96 @@ input:focus{
     font-family: 'Abhaya Libre', sans-serif;
 }
 
-.question-answer {
-    display: flex;
-    justify-content: flex-end;
-    width: 90%;
-    max-width: 100%;
-    margin-bottom: 10px;
+#result {
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 3%;
+    margin-bottom: 3%;
 }
+
+.question-answer {
+    /* display: flex;
+    justify-content: flex-end;
+    width: 80%;
+    max-width: 100%;
+    margin-bottom: 1%; */
+    display: grid;
+    grid-template-columns: 20px 50% 30%;
+    align-items: center;
+    width: 80%;
+    gap: 10%;
+    margin: 10px auto;
+    font-size: 16px;
+}
+
+input[type="checkbox"].mcq-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #4CAF50; /* warna hijau modern */
+    grid-column: 1;
+    /* place-self: center; */
+  }
+
 .question {
-    display: inline-block;
+    /* display: inline-block;
     vertical-align: top;
     width: 27%;
-    margin-right: 5%;
+    margin-right: 5%; */
+    /* width: 60%; */
+    white-space: normal;
+    word-break: break-word;   
+    grid-column: 2;
+    
+    margin-right: 10%;
 }
 .answer {
-    display: inline-block;
+    /* display: inline-block;
     vertical-align: top;
     width: 32%;
+    margin-right: 5%; */
+    /* width: 20%; */
+    font-family: monospace;
+    color: #333;
+    grid-column: 3;
 }
 
-
 .header {
-    display: flex;
+    /* display: flex;
     justify-content: flex-end;
     width: 90%;
     max-width: 100%;
-    margin-bottom: 10px;
-}
-.question-title {
-    width: 27%;
-    margin-right: 5%;
+    margin-bottom: 10px; */
+    display: grid;
+    grid-template-columns: 20px 50% 30%; /* checkbox | question | answer */
+    align-items: center;
     font-weight: bold;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 2%;
+    gap: 10%;
+    padding: 8px 0;
+    /* border-bottom: 1px solid #757575; */
+}
+
+.checkbox-title {
+    /* optional space or icon */
+    /* width: 5%; */
+    grid-column: 1;
+  }
+
+.question-title {
+    /* width: 27%;
+    margin-right: 5%;
+    font-weight: bold; */
+    grid-column: 2;
+    /* margin-right: 10%; */
 }
 .answer-title {
-    font-weight: bold;
+    /* font-weight: bold;
     width: 32%;
+    margin-right: 5%; */
+    grid-column: 3;
 }
 
 .toggle-button {
@@ -314,6 +390,7 @@ input:focus{
     justify-content: center;
     align-items: center;
     margin:auto;
+    margin-top: 2%;
 }
 
 button {
@@ -331,7 +408,7 @@ button {
 }
 
 button:hover {
-    background-color: black;
+    background-color: gray;
     color: white;
 }
 
@@ -358,12 +435,23 @@ td {
 }
 
 /* MCQ Styles */
+
+#mcqDiv {
+    width: 80%;
+    margin: 20px auto;
+  }
+
 .mcq-question {
-    margin-bottom: 20px;
+    /* margin-bottom: 20px;
     padding: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
+    background-color: #f9f9f9; */
     background-color: #f9f9f9;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .mcq-options {
@@ -383,9 +471,59 @@ td {
     background-color: #f0f0f0;
 }
 
-.correct-answer {
-    color: #28a745;
+.mcq-question p {
     font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+/* Pilihan jawaban */
+.mcq-question ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+  
+.mcq-question li {
+    margin-bottom: 6px;
+    padding-left: 4px;
+    font-size: 15px;
+}
+
+.mcq-question li.correct {
+    font-weight: bold;
+    color: #2e7d32; /* hijau */
+}
+
+/* Label pilihan */
+.mcq-question label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background-color: #fff;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/* Radio button */
+.mcq-question input[type="radio"] {
+    transform: scale(1.2);
+    margin-right: 8px;
+}
+
+/* Hover effect */
+.mcq-question label:hover {
+    background-color: #f0f0f0;
+}
+  
+label {
+    padding: 4px 8px;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 3px 0;
 }
 
 /* Modal Styles (Additional) */
@@ -468,12 +606,6 @@ td {
     margin-top: 5px;
 }
 
-/* Button Styles */
-#button-container {
-    margin-top: 20px;
-    text-align: center;
-}
-
 #button-container button {
     margin: 5px;
     padding: 10px 15px;
@@ -494,7 +626,7 @@ td {
 }
 
 #export, #exportMCQ {
-    background-color: #ff9800;
+    background-color: #5fd0e9;
 }
 
 #button-container button:hover {

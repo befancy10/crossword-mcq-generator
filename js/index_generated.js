@@ -563,14 +563,17 @@
                 if(tileCount == c){
                   var modal = document.getElementById('crosswordIsEmpty');
                   var cancelBtn = document.getElementById('okayButtonEmpty');
+
                   modal.style.display = 'block';
+
                   cancelBtn.onclick = function () {
-                      modal.style.display = 'none';
+                    modal.style.display = 'none';
                   };
+
                   window.onclick = function (event) {
-                      if (event.target == modal) {
-                          modal.style.display = 'none';
-                      }
+                    if (event.target == modal) {
+                      modal.style.display = 'none';
+                    }
                   };
                 }
               }
@@ -618,23 +621,32 @@
                           
                           i("checkCondition").onclick = function () {
                             if (c === 0) {
-                              setTimeout(function () {
-                                  var modal = document.getElementById('crosswordFinished');
-                                  var cancelBtn = document.getElementById('okayButton');
-                                  modal.style.display = 'block';
-                                  cancelBtn.onclick = function () {
-                                      modal.style.display = 'none';
-                                  };
-                                  window.onclick = function (event) {
-                                      if (event.target == modal) {
-                                          modal.style.display = 'none';
-                                      }
-                                  };
-                              }, 4);
+                              
                               let studentName = sessionStorage.getItem("studentName");
                               let key = sessionStorage.getItem("crosswordKey");
-                              let timeElapsed =
-                                (Date.now() - sessionStorage.getItem("startTime")) / 1000;
+                              let timeElapsed = (Date.now() - sessionStorage.getItem("startTime")) / 1000;
+
+                              setTimeout(function () {
+                                var modal = document.getElementById('crosswordFinished');
+                                var cancelBtn = document.getElementById('okayButton');
+                                var leaderboardBtn = document.getElementById('viewLeaderboard');
+                                modal.style.display = 'block';
+                                
+                                cancelBtn.onclick = function () {
+                                  modal.style.display = 'none';
+                                };
+                                
+                                leaderboardBtn.onclick = function () {
+                                  sessionStorage.setItem("leaderboardKey", key);
+                                  window.location.href = 'leaderboard.html';
+                                };
+                                
+                                window.onclick = function (event) {
+                                  if (event.target == modal) {
+                                      modal.style.display = 'none';
+                                  }
+                                };
+                              }, 4);
                                           
                               if (!key || !studentName) {
                                 alert("Key or Name is missing.");
